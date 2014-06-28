@@ -47,11 +47,6 @@ class RSSPlayer
     $channel = $xml->channel;
 
     /*
-    * Call to output header
-    */
-    $this->outputHeader($channel);
-
-    /*
     * Find all the item children of channel and process for output rows
     */
 
@@ -59,10 +54,6 @@ class RSSPlayer
 
     }*/
 
-    /*
-    * Call to output footer
-    */
-    $this->outputFooter();
   }
 
   /**
