@@ -1,0 +1,15 @@
+# User specific files
+epp/tmp/logs/error.log
+app/tmp/logs/error.log
+abase.php
+app/tmp/*
+app/[Cc]onfig/core.php
+app/[Cc]onfig/database.php
+!emptypp/tmp/logs/error.log
+
+# OS generated files
+!empty
+.DS_Store
+nbproject
+Thumbs.db
+Desktop.ini
