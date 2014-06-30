@@ -31,15 +31,7 @@ $siteDescription = 'PlayMyPodcast';
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer" data-role="footer">
-			<div data-role="navbar" data-grid="b">
-          <ul>
-            <li><a href="#" class="ui-btn-active">Playing</a></li>
-            <li><?php echo $this->Html->link('Podcasts', array('action' => 'index'))?></li>
-            <li><a href="#">Settings</a></li>
-          </ul>
-      </div><!-- /navbar -->
-		</div>
+		<!--<div id="footer" data-role="footer"></div>-->
 	</div>
 </body>
 </html>

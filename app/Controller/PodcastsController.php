@@ -19,6 +19,9 @@ class PodcastsController extends AppController {
             throw new NotFoundException(__('Invalid podcast'));
         }
         $this->set('podcast', $podcast);
+        
+        $episodes = $this->Podcast->search($podcast['Podcast']['link']);
+        $this->set(compact('episodes'));
     }
 
         public function add() {

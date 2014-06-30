@@ -5,10 +5,13 @@
 <p><?php echo h($podcast['Podcast']['link']); ?></p>
 
 <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filter-for-listview">
-  <li>Episode 10</li>
-  <li>Episode 9</li>
-  <li>Episode 8</li>
-  <li>Episode 7</li>
-  <li>Episode 6</li>
-  <li>Episode 5</li>
+  <?php
+  foreach($episodes as $episode){
+    if($episode['Episode']['url']){
+      echo '<li>';
+      echo $this->Html->link($episode['Episode']['title'], $episode['Episode']['url']);
+      echo '</li>';
+    }
+  }
+  ?>
 </ul>
