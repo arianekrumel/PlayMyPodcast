@@ -3,7 +3,7 @@
 <h1>Podcasts</h1>
 
 <!-- Here's where we loop through our $podcasts array, printing out podcast info -->
-<ul data-role="listview" data-inset="true" data-filter="true" data-input="#filter-for-listview">
+<ul data-role="listview" data-inset="true" data-filter="true" data-input="#filter-for-listview" data-split-icon="edit">
     <?php foreach ($podcasts as $podcast): ?>
     <li>
             <?php
