@@ -1,6 +1,6 @@
 <!-- File: /app/View/Podcasts/index.ctp  (edit links added) -->
 
-<h1>Podcasts</h1>
+<h1>Stations</h1>
 
 <!-- Here's where we loop through our $podcasts array, printing out podcast info -->
 <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filter-for-listview" data-split-icon="edit">
