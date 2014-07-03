@@ -27,4 +27,7 @@ class Podcast extends AppModel {
    
    return $episodes;
  }
+    public function storeEpisodes($id, $link){
+        //parse episodes and save in database
+    }
 }

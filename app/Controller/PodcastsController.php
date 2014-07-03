@@ -33,6 +33,8 @@ class PodcastsController extends AppController {
                 }
                 $this->Session->setFlash(__('Unable to add your podcast.'));
             }
+            // send link to database
+            $this->Podcast->storeEpisodes($podcast['Podcast']['id'], $podcast['Podcast']['link']);
         }
         
         public function edit($id = null) {
