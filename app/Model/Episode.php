@@ -2,11 +2,17 @@
 
 class Episode extends AppModel {
 	public $validate = array(
-		'title' => array(
+		'name' => array(
 			'rule' => 'notEmpty'
 		),
-		'link' => array(
+		'pubdate' => array(
 			'rule' => 'notEmpty'
-		)
+		),
+		'url' => array(
+			'rule' => 'notEmpty'
+		)    ,
+  	'description' => array(
+  		'rule' => 'notEmpty'
+  	)
 	);
 }

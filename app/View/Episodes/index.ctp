@@ -5,7 +5,10 @@
 <table>
     <tr>
         <th>Id</th>
-        <th>Title</th>
+        <th>Name</th>
+        <th>Publication Date</th>
+        <th>URL</th>
+        <th>Description</th>
         <th>Action</th>
         <th>Created</th>
     </tr>
@@ -18,7 +21,31 @@
         <td>
             <?php
                 echo $this->Html->link(
-                    $episode['Episode']['title'],
+                    $episode['Episode']['name'],
+                    array('action' => 'view', $episode['Episode']['id'])
+                );
+            ?>
+        </td>
+        <td>
+            <?php
+                echo $this->Html->link(
+                    $episode['Episode']['pubdate'],
+                    array('action' => 'view', $episode['Episode']['id'])
+                );
+            ?>
+        </td>
+        <td>
+            <?php
+                echo $this->Html->link(
+                    $episode['Episode']['url'],
+                    array('action' => 'view', $episode['Episode']['id'])
+                );
+            ?>
+        </td>
+        <td>
+            <?php
+                echo $this->Html->link(
+                    $episode['Episode']['description'],
                     array('action' => 'view', $episode['Episode']['id'])
                 );
             ?>
