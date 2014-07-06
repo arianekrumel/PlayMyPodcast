@@ -1,5 +1,7 @@
 <?php
 
+App::import('Controller', 'Episodes');
+
 class PodcastsController extends AppController {
     public $helpers = array('Html', 'Form');
 
@@ -23,16 +25,32 @@ class PodcastsController extends AppController {
     }
 
     public function add() {
+        $Episodes = new EpisodesController;
+        $Episodes->constructClasses();
+
         if ($this->request->is('post')) {
             $this->Podcast->create();
             if ($this->Podcast->save($this->request->data)) {
                 $this->Session->setFlash(__('Your podcast has been saved.'));
+
+                // save all current episodes
+                $episodes = $Episodes->getEpisodes($this->request->data['Podcast']['link']);
+                foreach($episodes as $episode){
+                    $data = Array(
+                        'Episode' => Array
+                            (
+                                'name' => $episode['Episode']['name'],
+                                'pubdate' => $episode['Episode']['pubdate'],
+                                'url' => $episode['Episode']['url'],
+                                'description' => $episode['Episode']['description']
+                            )
+                    );
+                    $Episodes->add($data);
+                }
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Session->setFlash(__('Unable to add your podcast.'));
         }
-        // send link to database
-        $this->Podcast->storeEpisodes($podcast['Podcast']['id'], $podcast['Podcast']['link']);
     }
     
     public function edit($id = null) {

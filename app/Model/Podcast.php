@@ -14,7 +14,7 @@ class Podcast extends AppModel {
     
    $i=0;
    foreach($xml->channel->item as $item){
-     if($i==10) break;
+     if($i==2) break;
      $episodes[] = array('Episode' => array(
         'title' => (string)$item->title,
         'imageurl' => (string)$item->imageurl,
@@ -27,7 +27,4 @@ class Podcast extends AppModel {
    
    return $episodes;
  }
-    public function storeEpisodes($id, $link){
-        //parse episodes and save in database
-    }
 }

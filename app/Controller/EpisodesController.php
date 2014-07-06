@@ -19,15 +19,21 @@ class EpisodesController extends AppController {
         $this->set('episode', $episode);
     }
 
-    public function add() {
-        if ($this->request->is('post')) {
+    public function add($data) {
+        //if ($this->request->is('post')) {
             $this->Episode->create();
-            if ($this->Episode->save($this->request->data)) {
+            //if ($this->Episode->save($this->request->data)) {
+            if ($this->Episode->save($data)) {
                 $this->Session->setFlash(__('Your episode has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                //return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash(__('Unable to add your episode.'));
-        }
+            //$this->Session->setFlash(__('Unable to add your episode.'));
+        //}
+    }
+
+    public function getEpisodes($link){
+        $episodes = $this->Episode->parseEpisodes($link);
+        return $episodes;
     }
     
     public function edit($id = null) {
