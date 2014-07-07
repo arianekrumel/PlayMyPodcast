@@ -23,7 +23,7 @@ class PodcastsController extends AppController {
         }
         $this->set('podcast', $podcast);
         
-        $episodes = $Episodes->Episode->find('all');
+        $episodes = $Episodes->Episode->findAllByPodcast($podcast['Podcast']['link']);
         $this->set(compact('episodes'));
     }
 
@@ -38,6 +38,8 @@ class PodcastsController extends AppController {
 
                 // save all current episodes
                 $episodes = $Episodes->Episode->parseEpisodes($this->request->data['Podcast']['link']);
+
+                // send all episodes to podcast model
                 foreach($episodes as $episode){
                     $data = Array(
                         'Episode' => Array
