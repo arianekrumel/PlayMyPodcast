@@ -10,6 +10,9 @@ class PodcastsController extends AppController {
     }
 
     public function view($id = null) {
+        $Episodes = new EpisodesController;
+        $Episodes->constructClasses();
+
         if (!$id) {
             throw new NotFoundException(__('Invalid podcast'));
         }
@@ -20,7 +23,7 @@ class PodcastsController extends AppController {
         }
         $this->set('podcast', $podcast);
         
-        $episodes = $this->Podcast->search($podcast['Podcast']['link']);
+        $episodes = $Episodes->Episode->find('all');
         $this->set(compact('episodes'));
     }
 
@@ -34,7 +37,7 @@ class PodcastsController extends AppController {
                 $this->Session->setFlash(__('Your podcast has been saved.'));
 
                 // save all current episodes
-                $episodes = $Episodes->getEpisodes($this->request->data['Podcast']['link']);
+                $episodes = $Episodes->Episode->parseEpisodes($this->request->data['Podcast']['link']);
                 foreach($episodes as $episode){
                     $data = Array(
                         'Episode' => Array
@@ -42,7 +45,8 @@ class PodcastsController extends AppController {
                                 'name' => $episode['Episode']['name'],
                                 'pubdate' => $episode['Episode']['pubdate'],
                                 'url' => $episode['Episode']['url'],
-                                'description' => $episode['Episode']['description']
+                                'description' => $episode['Episode']['description'],
+                                'podcast' => $this->request->data['Podcast']['link']
                             )
                     );
                     $Episodes->add($data);

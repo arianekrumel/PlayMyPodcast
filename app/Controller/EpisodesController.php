@@ -30,11 +30,6 @@ class EpisodesController extends AppController {
             //$this->Session->setFlash(__('Unable to add your episode.'));
         //}
     }
-
-    public function getEpisodes($link){
-        $episodes = $this->Episode->parseEpisodes($link);
-        return $episodes;
-    }
     
     public function edit($id = null) {
         if (!$id) {

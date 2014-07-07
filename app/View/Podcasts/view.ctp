@@ -5,7 +5,7 @@
 	foreach($episodes as $episode){
 		if($episode['Episode']['url']){
 			echo '<li>';
-			echo $this->Html->link($episode['Episode']['title'], $episode['Episode']['url']);
+			echo $this->Html->link($episode['Episode']['name'], $episode['Episode']['url']);
 			echo '</li>';
 		}
 	}
