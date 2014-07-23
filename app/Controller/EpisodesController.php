@@ -64,7 +64,12 @@ class EpisodesController extends AppController {
             $this->Session->setFlash(
                 __('The episode with id: %s has been deleted.', h($id))
             );
-            return $this->redirect(array('action' => 'index'));
+            return $this->redirect(
+                array(
+                    'controller' => 'podcasts', 
+                    'action' => 'index'
+                )
+            );
         }
     }
 }

@@ -95,4 +95,48 @@ class PodcastsController extends AppController {
             return $this->redirect(array('action' => 'index'));
         }
     }
+
+    public function refresh($id) {
+        if ($this->request->is('get')) {
+            throw new MethodNotAllowedException();
+        }
+
+        /*if ($this->Podcast->delete($id)) {
+            $this->Session->setFlash(
+                __('The podcast with id: %s has been deleted.', h($id))
+            );
+            return $this->redirect(array('action' => 'index'));
+        }*/
+
+        /*$Episodes = new EpisodesController;
+        $Episodes->constructClasses();
+
+        if ($this->request->is('post')) {
+            $this->Podcast->create();
+            if ($this->Podcast->save($this->request->data)) {
+                $this->Session->setFlash(__('Your podcast has been saved.'));
+
+                // save all current episodes
+                $episodes = $Episodes->Episode->parseEpisodes($this->request->data['Podcast']['link']);
+
+                // send all episodes to podcast model
+                foreach($episodes as $episode){
+                    $data = Array(
+                        'Episode' => Array
+                            (
+                                'name' => $episode['Episode']['name'],
+                                'pubdate' => $episode['Episode']['pubdate'],
+                                'url' => $episode['Episode']['url'],
+                                'description' => $episode['Episode']['description'],
+                                'podcast' => $this->request->data['Podcast']['link']
+                            )
+                    );
+                    $Episodes->add($data);
+                }
+                return $this->redirect(array('action' => 'index'));
+            }
+            $this->Session->setFlash(__('Unable to add your podcast.'));
+        }*/
+    }
+
 }

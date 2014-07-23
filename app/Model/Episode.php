@@ -21,7 +21,7 @@ class Episode extends AppModel {
 
 		$i=0;
 		foreach($xml->channel->item as $item){
-			if($i==2) break;
+			//if($i==2) break;
 			$episodes[] = array(
 				'Episode' => array(
 					'name' => (string)$item->title,
