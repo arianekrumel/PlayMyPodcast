@@ -1,6 +1,12 @@
 <!-- File: /app/View/Podcasts/index.ctp  (edit links added) -->
 
-<h1>Stations</h1>
+<h1>Podcasts</h1>
+
+<p><?php echo $this->Html->link(
+  'Add New Podcast', 
+  array('action' => 'add'), 
+  array('class' => array('ui-btn', 'ui-icon-plus', 'ui-btn-b', 'ui-corner-all'))
+  ); ?></p>
 
 <!-- Here's where we loop through our $podcasts array, printing out podcast info -->
 <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filter-for-listview" data-split-icon="edit">
@@ -26,9 +32,3 @@
     </li>
     <?php endforeach; ?>
 </ul>
-
-<p><?php echo $this->Html->link(
-  'Add Podcast', 
-  array('action' => 'add'), 
-  array('class' => array('ui-btn', 'ui-icon-plus'))
-  ); ?></p>
